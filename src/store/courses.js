@@ -34,9 +34,11 @@
                 const data = await response.json()
                 console.log('received data:', data)                
                 commit('addCourses', data)
+                return true
             } 
             catch (error) {
                 console.log('error: ', error)
+                return false
             }
         },
   },

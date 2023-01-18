@@ -31,9 +31,11 @@
                 const data = await response.json()
                 console.log('received data:', data)                
                 commit('addEnrolls', data)
+                return true
             } 
             catch (error) {
               console.log('error: ', error)
+              return false
             }
         },
     async newEnroll({commit}, newEnroll) {         
