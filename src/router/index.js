@@ -6,17 +6,12 @@ import Register from '@/views/Register.vue'
 import Message from '@/views/Message.vue'
 import Login from '@/views/Login.vue'
 import MyCourses from '@/views/MyCourses.vue'
-import Recurso from '@/views/Recurso.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    component: Recurso
-  },
-  {
-    path: '/Home',
     component: Home
   },
   {

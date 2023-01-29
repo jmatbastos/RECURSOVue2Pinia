@@ -27,7 +27,6 @@ CREATE TABLE `users` (
  `activated_at` datetime default NULL,
  `reset_digest` varchar(255) default NULL,
  `reset_sent_at` datetime default NULL,
- `roles` longtext COMMENT '(DC2Type:json)',
  PRIMARY KEY (`id`),
  UNIQUE KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
@@ -113,5 +112,10 @@ CREATE TABLE `enrolls` (
  CONSTRAINT FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ 
+--
+-- Set foreign key checks on
+-- 
+ 
  SET FOREIGN_KEY_CHECKS = 1;
 
