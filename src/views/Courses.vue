@@ -42,8 +42,15 @@
 import Footer from '@/components/Footer.vue'
 import Header from '@/components/Header.vue'
 
-export default {
+import { useCoursesStore } from '@/store/courses'
+import { useCategoriesStore } from '@/store/categories'
 
+export default {
+	setup() {
+		const coursesStore = useCoursesStore()		
+        const categoriesStore = useCategoriesStore()	
+		return { coursesStore, categoriesStore }
+    },
     components: {
         Footer,
         Header

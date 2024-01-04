@@ -1,8 +1,9 @@
-  const Enrolls = {
-  namespaced: true,
-  state: {
-    Enrolls: 
-    [
+import { defineStore } from 'pinia'
+
+export const useEnrollsStore = defineStore({
+  id: 'enrolls',
+  state: () => ({
+    Enrolls: [
 //      {
 //         "course_name":"Javascript Course",
 //         "teacher_name":"Peter Frampton",
@@ -10,7 +11,7 @@
 //         "enroll_date":"2022-12-18 20:38:19"
 //       }
      ]
-  },
+  }),
   getters: {
     getEnrolls (state) {
       return state.Enrolls
@@ -58,6 +59,4 @@
   },
   modules: {
   }
-}
-export default 
-    Enrolls
+})

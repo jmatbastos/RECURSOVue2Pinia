@@ -1,7 +1,8 @@
- 
-  const courses = {
-  namespaced: true,
-  state: {
+import { defineStore } from 'pinia'
+
+export const useCoursesStore = defineStore({
+  id: 'courses',
+  state: () => ({
     courses: [
 //      {
 //        "cat_name":"Featured",
@@ -15,7 +16,7 @@
 //        "sales":"345"
 //    }
     ]
-  },
+  }),
   getters: {
     getCourses (state) {
       return state.courses;
@@ -44,6 +45,4 @@
   },
   modules: {
   }
-}
-export default 
-    courses
+})

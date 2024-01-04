@@ -34,9 +34,14 @@
 import Footer from '@/components/Footer.vue'
 import Header from '@/components/Header.vue'
 
+import { useEnrollsStore } from '@/store/enrolls'
+
 
 export default {
-	name: 'dishes',
+	setup() {
+		const enrollsStore = useEnrollsStore()		
+		return { enrollsStore }
+    },
     components: {
 		Footer,
         Header

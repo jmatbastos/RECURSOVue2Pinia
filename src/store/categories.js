@@ -1,7 +1,9 @@
  
-  const categories = {
-  namespaced: true,
-  state: {
+import { defineStore } from 'pinia'
+
+export const useCategoriesStore = defineStore({
+  id: 'categories',
+  state: () => ({
     categories: [
     // {
     //"id":"1",
@@ -9,25 +11,22 @@
     //"description":"NULL",
     //}
     ]
-  },
+  }),
   getters: {
     getCategories (state) {
       return state.categories;
     },   
   }, 
-  mutations: {
-    addCategories(state, categories){
-        state.categories = categories
-    },
-
-    },
   actions: {
-    async getCategoriesFromDB({commit}) {
+    addCategories(categories){
+      this.categories = categories
+    },
+    async getCategoriesFromDB() {
             try {
                 const response = await fetch('http://daw.deei.fct.ualg.pt/~a12345/RECURSO/api/coursecategories.php')
                 const data = await response.json()
                 console.log('received data:', data)                
-                commit('addCategories', data)
+                this.addCategories(data)
                 return true
             } 
             catch (error) {
@@ -36,9 +35,6 @@
             }
         },
   },
-  modules: {
-  }
-}
-export default 
-    categories
+})
+
   
